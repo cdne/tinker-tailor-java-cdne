@@ -13,17 +13,20 @@ class TinkerTailor {
     }
 
     public List execute() {
-        List<Integer> outcome = new ArrayList<>();
+        ArrayList<Integer> numbers = new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<>();
+        int indexToBeRemoved = 0;
 
-        outcome.add(3);
-        outcome.add(1);
-        outcome.add(5);
-        outcome.add(2);
-        outcome.add(4);
+        for(int i = 1; i <= n;i++){
+            numbers.add(i);
+        }
 
-        // Works for n = 5 and k = 3
-        // Well, you should come up with a more general algorithm :)
-
-        return outcome;
+        while(numbers.size() > 1){
+            indexToBeRemoved = (indexToBeRemoved + k - 1) % numbers.size();
+            result.add(numbers.remove(indexToBeRemoved));
+        }
+        int lastNumbersElement = numbers.get(0);
+        result.add(lastNumbersElement);
+        return result;
     }
 }
